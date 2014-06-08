@@ -14,16 +14,26 @@ data[order(data$DateTime), ]
 
 ##Create histogram
 plot(x = data$DateTime,
-     y = data$Global_active_power, 
+     y = data$Sub_metering_1, 
      col = "black",
      type = "l",
      xlab = "",
      xaxt = "n",
-     ylab = "Global Active Power (kilowatts)")
+     ylab = "Energy sub metering")
 
 lines(x = data$DateTime,
-      y = data$Global_active_power, 
+      y = data$Sub_metering_1, 
       col = "black",
+      type = "l")
+
+lines(x = data$DateTime,
+     y = data$Sub_metering_2, 
+     col = "red",
+     type = "l")
+
+lines(x = data$DateTime,
+      y = data$Sub_metering_3, 
+      col = "blue",
       type = "l")
 
 dateseq <- seq(as.Date("2007-02-01"), as.Date("2007-02-03"), by = "1 day")
@@ -34,6 +44,12 @@ axis(side = 1,
      at = c(1, match(weekdayseq[2], data$Weekday), nrow(data)),
      labels = weekdayseq)
 
+legend("topright",                       
+       legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),      
+       col = c("black", "red", "blue"),
+       lty = 1,
+       pch = NA) 
+
 ##Copy to graphic devices
-dev.copy(png, file = "plot2.png", width = 480, height = 480, units = "px")
+dev.copy(png, file = "plot3.png", width = 480, height = 480, units = "px")
 dev.off()
