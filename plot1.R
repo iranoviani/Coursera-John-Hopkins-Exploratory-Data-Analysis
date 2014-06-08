@@ -13,5 +13,5 @@ hist(data$Global_active_power,
      main = "Global Active Power")
 
 ##Copy to graphic devices
-dev.copy(png, file = "plo1.png", width = 480, height = 480, units = "px")
+dev.copy(png, file = "plot1.png", width = 480, height = 480, units = "px")
 dev.off()
