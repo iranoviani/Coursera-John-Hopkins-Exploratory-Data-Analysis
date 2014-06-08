@@ -30,7 +30,6 @@ dateseq <- seq(as.Date("2007-02-01"), as.Date("2007-02-03"), by = "1 day")
 weekdayseq <- weekdays(dateseq, abbreviate = TRUE)
 
 axis(side = 1,
-     ##at = dateseq,
      at = c(1, match(weekdayseq[2], data$Weekday), nrow(data)),
      labels = weekdayseq)
 
